@@ -50,25 +50,25 @@ export function SecurityCheck() {
       id: 'V001',
       licensePlate: '51C-123.45',
       driverName: 'Nguyễn Văn Nam',
-      vehicleType: 'Xe tải 5 tấn',
-      entryTime: '2025-08-14 08:30',
+      vehicleType: 'Xe tải 5 tấn (Ván MDF)',
+      entryTime: '2026-04-22 08:30',
       status: 'inside'
     },
     {
       id: 'V002',
-      licensePlate: '60A-987.65',
+      licensePlate: '60C-987.65',
       driverName: 'Trần Minh Tuấn',
-      vehicleType: 'Xe con 4 chỗ',
-      entryTime: '2025-08-14 09:15',
+      vehicleType: 'Xe Container 40ft (Xuất khẩu)',
+      entryTime: '2026-04-22 09:15',
       status: 'inside'
     },
     {
       id: 'V003',
       licensePlate: '72C-444.22',
       driverName: 'Lê Văn Tám',
-      vehicleType: 'Xe tải 10 tấn',
-      entryTime: '2025-08-14 07:00',
-      exitTime: '2025-08-14 10:30',
+      vehicleType: 'Xe tải 10 tấn (Nhập phôi)',
+      entryTime: '2026-04-22 07:00',
+      exitTime: '2026-04-22 10:30',
       status: 'exited'
     }
   ])

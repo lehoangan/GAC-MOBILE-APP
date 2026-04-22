@@ -15,38 +15,38 @@ export function QualityControl() {
     'in-progress': [
       {
         id: 3,
-        productName: 'Tủ áo gỗ thông TA003',
-        batch: 'BT-003',
-        quantity: 3,
-        qtyB: 0,
-        qtyR: 0,
+        productName: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3',
+        batch: 'MO-003',
+        quantity: 150,
+        qtyB: 2,
+        qtyR: 1,
         inspector: 'Nguyễn Thị Lan',
-        checkDate: '2025-08-13',
-        issues: ['Kiểm tra độ ẩm', 'Kiểm tra kích thước']
+        checkDate: '2026-04-22',
+        issues: ['Kiểm tra độ bám dính Men', 'Kiểm tra độ dày thực tế']
       }
     ],
     'completed': [
       {
         id: 5,
-        productName: 'Giường gỗ sồi GS005',
-        batch: 'BT-005',
-        quantity: 1,
+        productName: 'Ván MDF DW MBR E2 4.75x1220x2440',
+        batch: 'MO-005',
+        quantity: 500,
         qtyB: 0,
         qtyR: 0,
         inspector: 'Lê Thị Hoa',
-        checkDate: '2025-08-12',
+        checkDate: '2026-04-21',
         issues: []
       },
       {
         id: 6,
-        productName: 'Bàn làm việc BLV006',
-        batch: 'BT-006',
-        quantity: 4,
-        qtyB: 0,
+        productName: 'ECO MDF E2 12x1220x2440 Melamine',
+        batch: 'MO-006',
+        quantity: 450,
+        qtyB: 5,
         qtyR: 0,
         inspector: 'Phạm Văn Đức',
-        checkDate: '2025-08-11',
-        issues: []
+        checkDate: '2026-04-20',
+        issues: ['Vết xước nhẹ bề mặt']
       }
     ]
   })

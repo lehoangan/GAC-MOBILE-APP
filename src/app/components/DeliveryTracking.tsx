@@ -16,10 +16,10 @@ export function DeliveryTracking() {
   const [orders, setOrders] = useState([
     {
       id: 'DO-001',
-      customerName: 'Nguyễn Văn A',
+      customerName: 'Gỗ Á Châu',
       customerPhone: '0901234567',
       soNumber: 'SO-1001',
-      warehouse: 'Kho Thành Phẩm 1',
+      warehouse: 'Kho Ván Thành Phẩm 1',
       vehicleNumber: '51A-123.45',
       assignee: 'Tài xế Hùng',
       status: 'assign',
@@ -27,24 +27,24 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'Bàn ăn Oak', batch: 'LOT-A1', location: 'Rack-01', quantity: 2 },
-        { product: 'Ghế tựa', batch: 'LOT-A1', location: 'Rack-02', quantity: 6 }
+        { product: 'Ván MDF DW MBR E2 2.5x1220x2440', batch: 'LOT-MDF-01', location: 'Rack-A1', quantity: 200 },
+        { product: 'ECO MDF E2 12x1220x2440 Melamine 2', batch: 'LOT-ECO-02', location: 'Rack-B2', quantity: 150 }
       ]
     },
     {
       id: 'DO-002',
-      customerName: 'Trần Thị B',
+      customerName: 'Mộc Phát',
       customerPhone: '0912345678',
       soNumber: 'SO-1002',
-      warehouse: 'Kho Thành Phẩm 2',
+      warehouse: 'Kho Ván Thành Phẩm 2',
       vehicleNumber: '51C-987.65',
       assignee: 'Tài xế Tuấn',
       status: 'shipping',
       imageUrl: '',
-      expectedDate: '2026-04-20',
+      expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'Tủ quần áo MDF', batch: 'LOT-B2', location: 'Rack-05', quantity: 1 }
+        { product: 'ECO Chống ẩm E2 15x1220x2440 Phủ Men 3', batch: 'LOT-HMR-05', location: 'Rack-C5', quantity: 100 }
       ]
     }
   ])
@@ -52,7 +52,7 @@ export function DeliveryTracking() {
   const [batches, setBatches] = useState([
     {
       id: 'BATCH-DEL-001',
-      warehouse: 'Kho Thành Phẩm Tổng',
+      warehouse: 'Kho Tổng Gỗ Á Châu',
       vehicleNumber: '51D-555.55',
       assignee: 'Tài xế Minh',
       status: 'assign',
@@ -60,8 +60,8 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { doNumber: 'DO-003', customerName: 'Lê Văn C', customerPhone: '0933333333', soNumber: 'SO-1003', product: 'Kệ tivi', batch: 'LOT-C1', location: 'Rack-10', quantity: 1 },
-        { doNumber: 'DO-004', customerName: 'Hoàng Công D', customerPhone: '0944444444', soNumber: 'SO-1004', product: 'Bàn trà', batch: 'LOT-C2', location: 'Rack-11', quantity: 1 }
+        { doNumber: 'DO-003', customerName: 'Nội Thất Việt', customerPhone: '0933333333', soNumber: 'SO-1003', product: 'Ván MDF DW MBR E2 4.75x1220x2440', batch: 'LOT-MDF-03', location: 'Rack-A3', quantity: 300 },
+        { doNumber: 'DO-004', customerName: 'An Cường', customerPhone: '0944444444', soNumber: 'SO-1004', product: 'ECO MDF E2 12x1220x2440 Phủ Giấy', batch: 'LOT-ECO-04', location: 'Rack-B4', quantity: 250 }
       ]
     }
   ])
@@ -69,17 +69,17 @@ export function DeliveryTracking() {
   const [returns, setReturns] = useState([
     {
       id: 'RET-001',
-      customerName: 'Khách hàng C',
+      customerName: 'Gỗ Đức Thành',
       customerPhone: '0923456789',
       soNumber: 'SO-3001',
-      warehouse: 'Kho phế phẩm/Chờ xử lý',
-      reason: 'Sản phẩm trầy xước trong quá trình bốc vác',
+      warehouse: 'Kho Chờ xử lý QC',
+      reason: 'Bề mặt Melamine bị trầy xước nặng',
       assignee: 'Đội kho nhập',
       status: 'assign',
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'Tủ giày G1', batch: 'LOT-FAIL', location: 'Rack-99', quantity: 1 }
+        { product: 'ECO MDF E2 15x1220x2440 Melamine', batch: 'LOT-FAIL-01', location: 'Rack-99', quantity: 5 }
       ]
     }
   ])

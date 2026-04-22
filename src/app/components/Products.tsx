@@ -10,63 +10,67 @@ export function Products() {
   const products = [
     {
       id: 1,
-      name: 'Bàn gỗ sồi cao cấp Executive',
-      category: 'Bàn làm việc',
-      material: 'Gỗ sồi tự nhiên',
-      price: 5000000,
-      stock: 12,
+      name: 'Ván MDF DW MBR E2 2.5x1220x2440',
+      category: 'Ván MDF',
+      material: 'Gỗ sợi ép DW MBR',
+      price: 185000,
+      stock: 1500,
       status: 'Có sẵn',
       rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop',
-      bom: ['Mặt bàn gỗ sồi (2m x 1m)', '4 Chân gỗ sồi (10x10cm)', 'Sơn PU chống xước', 'Ốc vít hợp kim']
+      image: 'https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?w=300&h=200&fit=crop',
+      bom: ['Cốt ván MDF tiêu chuẩn E2', 'Keo kết dính chuyên dụng', 'Chất chống ẩm (nếu có)']
     },
     {
       id: 2,
-      name: 'Tủ áo gỗ thông Nordic Style',
-      category: 'Tủ áo',
-      material: 'Gỗ thông tự nhiên',
-      price: 8500000,
-      stock: 8,
+      name: 'ECO MDF E2 12x1220x2440 Melamine 2',
+      category: 'Ván ECO',
+      material: 'MDF E2 + Melamine',
+      price: 320000,
+      stock: 850,
       status: 'Có sẵn',
       rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop',
+      bom: ['Cốt ván ECO MDF E2', 'Tấm phủ Melamine 2 mặt', 'Keo dán nóng chảy PUR']
     },
     {
       id: 3,
-      name: 'Ghế gỗ cao su Ergonomic',
-      category: 'Ghế văn phòng',
-      material: 'Gỗ cao su + Đệm',
-      price: 1200000,
-      stock: 25,
+      name: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3',
+      category: 'Ván ECO',
+      material: 'ECO Chống ẩm HMR',
+      price: 450000,
+      stock: 420,
       status: 'Có sẵn',
       rating: 4.7,
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop',
+      bom: ['Cốt ván HMR chống ẩm', 'Lớp phủ Men 3 cao cấp', 'Chất làm cứng bề mặt']
     },
     {
       id: 4,
-      name: 'Giường gỗ sồi King Size',
-      category: 'Giường ngủ',
-      material: 'Gỗ sồi tự nhiên',
-      price: 12000000,
+      name: 'ECO MDF E2 15x1220x2440 Melamine',
+      category: 'Ván ECO',
+      material: 'MDF E2 + Melamine',
+      price: 380000,
       stock: 0,
       status: 'Hết hàng',
       rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&h=200&fit=crop',
+      bom: ['Cốt ván ECO MDF E2 15mm', 'Tấm phủ Melamine tiêu chuẩn', 'Keo dán cạnh']
     },
     {
       id: 5,
-      name: 'Kệ sách gỗ tự nhiên',
-      category: 'Kệ sách',
-      material: 'Gỗ MDF phủ Veneer',
-      price: 3500000,
-      stock: 15,
+      name: 'Keo dán cạnh PUR cao cấp',
+      category: 'Phụ kiện',
+      material: 'Keo PUR Đức',
+      price: 250000,
+      stock: 500,
       status: 'Có sẵn',
       rating: 4.6,
-      image: 'https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?w=300&h=200&fit=crop'
+      image: 'https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?w=300&h=200&fit=crop',
+      bom: ['Hợp chất Polyurethane', 'Chất xúc tác nhiệt']
     }
   ]
 
-  const categories = ['Tất cả', 'Bàn làm việc', 'Tủ áo', 'Ghế văn phòng', 'Giường ngủ', 'Kệ sách']
+  const categories = ['Tất cả', 'Ván MDF', 'Ván ECO', 'Phụ kiện']
 
   return (
     <div className="p-4 pb-24 space-y-4">

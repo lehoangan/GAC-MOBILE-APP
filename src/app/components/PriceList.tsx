@@ -16,134 +16,134 @@ export function PriceList({ customerType = null, showActions = false, onSelectPr
     furniture: [
       {
         id: 1,
-        name: 'Bàn gỗ sồi cao cấp Executive',
-        category: 'Bàn làm việc',
-        basePrice: 12500000,
+        name: 'Ván MDF DW MBR E2 2.5x1220x2440',
+        category: 'Ván MDF',
+        basePrice: 185000,
         prices: {
-          standard: { price: 12500000, discount: 0 },
-          vip: { price: 11875000, discount: 5 },
-          wholesale: { price: 11250000, discount: 10 }
+          standard: { price: 185000, discount: 0 },
+          vip: { price: 175000, discount: 5 },
+          wholesale: { price: 165000, discount: 10 }
         },
-        unit: 'cái',
-        inStock: 15,
-        minOrder: 1,
-        phuThu: 500000,
-        tax: 10,
-        description: 'Bàn làm việc cao cấp từ gỗ sồi tự nhiên',
+        unit: 'tấm',
+        inStock: 1500,
+        minOrder: 10,
+        phuThu: 0,
+        tax: 8,
+        description: 'Ván MDF tiêu chuẩn E2, xuất xứ DW MBR',
         specs: [
-          { label: 'Chất liệu', value: 'Gỗ sồi Nga' },
-          { label: 'Kích thước', value: '1800x900x750mm' },
-          { label: 'Màu sắc', value: 'Cánh gián nhạt' }
+          { label: 'Độ dày', value: '2.5mm' },
+          { label: 'Quy cách', value: '1220x2440mm' },
+          { label: 'Tiêu chuẩn', value: 'E2' }
         ]
       },
       {
         id: 2,
-        name: 'Ghế gỗ cao su Ergonomic',
-        category: 'Ghế văn phòng',
-        basePrice: 4200000,
+        name: 'ECO MDF E2 12x1220x2440 Melamine 2',
+        category: 'Ván ECO',
+        basePrice: 320000,
         prices: {
-          standard: { price: 4200000, discount: 0 },
-          vip: { price: 3990000, discount: 5 },
-          wholesale: { price: 3780000, discount: 10 }
+          standard: { price: 320000, discount: 0 },
+          vip: { price: 300000, discount: 6 },
+          wholesale: { price: 280000, discount: 12 }
         },
-        unit: 'cái',
-        inStock: 42,
-        minOrder: 2,
-        phuThu: 150000,
+        unit: 'tấm',
+        inStock: 850,
+        minOrder: 5,
+        phuThu: 5000,
         tax: 8,
-        description: 'Ghế ergonomic từ gỗ cao su với đệm êm',
+        description: 'Ván ECO MDF phủ Melamine 2 mặt',
         specs: [
-          { label: 'Chất liệu', value: 'Gỗ cao su, Nệm vải' },
-          { label: 'Chân ghế', value: 'Xoay 360 độ' },
-          { label: 'Màu sắc', value: 'Xám đậm' }
+          { label: 'Độ dày', value: '12mm' },
+          { label: 'Bề mặt', value: 'Melamine 2' },
+          { label: 'Cốt ván', value: 'ECO MDF E2' }
         ]
       },
       {
         id: 3,
-        name: 'Tủ áo gỗ thông Nordic',
-        category: 'Tủ áo',
-        basePrice: 8900000,
+        name: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3',
+        category: 'Ván ECO',
+        basePrice: 450000,
         prices: {
-          standard: { price: 8900000, discount: 0 },
-          vip: { price: 8455000, discount: 5 },
-          wholesale: { price: 8010000, discount: 10 }
+          standard: { price: 450000, discount: 0 },
+          vip: { price: 420000, discount: 7 },
+          wholesale: { price: 390000, discount: 13 }
         },
-        unit: 'cái',
-        inStock: 8,
-        minOrder: 1,
-        phuThu: 800000,
-        tax: 10,
-        description: 'Tủ áo phong cách Nordic từ gỗ thông',
+        unit: 'tấm',
+        inStock: 420,
+        minOrder: 5,
+        phuThu: 10000,
+        tax: 8,
+        description: 'Ván ECO chống ẩm phủ Men 3 cao cấp',
         specs: [
-          { label: 'Chất liệu', value: 'Gỗ thông Chile' },
-          { label: 'Số cánh', value: '3 cánh' },
-          { label: 'Kích thước', value: '1600x2000x600mm' }
+          { label: 'Độ dày', value: '12mm' },
+          { label: 'Tính năng', value: 'Chống ẩm HMR' },
+          { label: 'Bề mặt', value: 'Phủ Men 3' }
         ]
       },
       {
         id: 4,
-        name: 'Kệ sách gỗ tự nhiên',
-        category: 'Kệ sách',
-        basePrice: 3200000,
+        name: 'ECO MDF E2 15x1220x2440 Melamine',
+        category: 'Ván ECO',
+        basePrice: 380000,
         prices: {
-          standard: { price: 3200000, discount: 0 },
-          vip: { price: 3040000, discount: 5 },
-          wholesale: { price: 2880000, discount: 10 }
+          standard: { price: 380000, discount: 0 },
+          vip: { price: 360000, discount: 5 },
+          wholesale: { price: 340000, discount: 10 }
         },
-        unit: 'cái',
-        inStock: 25,
-        minOrder: 1,
-        phuThu: 200000,
-        tax: 10,
-        description: 'Kệ sách đa năng từ gỗ tự nhiên',
+        unit: 'tấm',
+        inStock: 600,
+        minOrder: 5,
+        phuThu: 0,
+        tax: 8,
+        description: 'Ván ECO MDF 15mm tiêu chuẩn',
         specs: [
-          { label: 'Chất liệu', value: 'Gỗ xoan đào' },
-          { label: 'Số tầng', value: '5 tầng' },
-          { label: 'Tải trọng', value: '20kg/tầng' }
+          { label: 'Độ dày', value: '15mm' },
+          { label: 'Quy cách', value: '1220x2440mm' },
+          { label: 'Tiêu chuẩn', value: 'E2' }
         ]
       }
     ],
     accessories: [
       {
         id: 5,
-        name: 'Tay nắm đồng cao cấp',
-        category: 'Phụ kiện',
+        name: 'Keo dán cạnh PUR cao cấp',
+        category: 'Vật tư',
         basePrice: 250000,
         prices: {
           standard: { price: 250000, discount: 0 },
-          vip: { price: 225000, discount: 10 },
-          wholesale: { price: 200000, discount: 20 }
+          vip: { price: 235000, discount: 6 },
+          wholesale: { price: 220000, discount: 12 }
         },
-        unit: 'bộ',
-        inStock: 150,
-        minOrder: 10,
+        unit: 'kg',
+        inStock: 500,
+        minOrder: 1,
         phuThu: 0,
         tax: 8,
-        description: 'Tay nắm đồng thau chống gỉ',
+        description: 'Keo dán cạnh PUR chịu nhiệt, chống thấm nước',
         specs: [
-          { label: 'Vật liệu', value: 'Đồng thau nguyên chất' },
-          { label: 'Kiểu dáng', value: 'Cổ điển' }
+          { label: 'Loại keo', value: 'PUR' },
+          { label: 'Xuất xứ', value: 'Đức' }
         ]
       },
       {
         id: 6,
-        name: 'Ray trượt chất lượng cao',
-        category: 'Phụ kiện',
-        basePrice: 180000,
+        name: 'Chỉ nhựa PVC vân gỗ 1mm',
+        category: 'Vật tư',
+        basePrice: 4500,
         prices: {
-          standard: { price: 180000, discount: 0 },
-          vip: { price: 162000, discount: 10 },
-          wholesale: { price: 144000, discount: 20 }
+          standard: { price: 4500, discount: 0 },
+          vip: { price: 4200, discount: 6 },
+          wholesale: { price: 3800, discount: 15 }
         },
-        unit: 'bộ',
-        inStock: 200,
-        minOrder: 20,
+        unit: 'mét',
+        inStock: 10000,
+        minOrder: 100,
         phuThu: 0,
         tax: 8,
-        description: 'Ray trượt im lặng cao cấp',
+        description: 'Chỉ nhựa PVC đồng màu với ván Melamine',
         specs: [
-          { label: 'Vật liệu', value: 'Thép không gỉ' },
-          { label: 'Tính năng', value: 'Giảm chấn' }
+          { label: 'Độ dày', value: '1mm' },
+          { label: 'Vật liệu', value: 'PVC' }
         ]
       }
     ]

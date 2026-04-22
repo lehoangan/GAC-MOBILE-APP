@@ -7,15 +7,15 @@ import { TrendingUp, Package, DollarSign, Plus, Bell, AlertCircle, CheckCircle, 
 export function Dashboard() {
   const navigate = useNavigate();
   const salesData = [
-    { name: 'Bàn gỗ sồi cao cấp', quantity: 25, revenue: 125000000, trend: '+12%' },
-    { name: 'Tủ áo gỗ thông Nordic', quantity: 18, revenue: 90000000, trend: '+8%' },
-    { name: 'Ghế gỗ cao su ergonomic', quantity: 42, revenue: 84000000, trend: '+15%' },
+    { name: 'Ván MDF DW MBR E2 2.5x1220x2440', quantity: 150, revenue: 45000000, trend: '+12%' },
+    { name: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3', quantity: 85, revenue: 38000000, trend: '+8%' },
+    { name: 'ECO MDF E2 15x1220x2440 Melamine', quantity: 120, revenue: 54000000, trend: '+15%' },
   ]
 
   const bestSellers = [
-    { name: 'Ghế gỗ cao su ergonomic', sold: 42, trend: '+15%', category: 'Nội thất văn phòng' },
-    { name: 'Bàn gỗ sồi cao cấp', sold: 25, trend: '+12%', category: 'Nội thất gia đình' },
-    { name: 'Tủ áo gỗ thông Nordic', sold: 18, trend: '+8%', category: 'Phòng ngủ' },
+    { name: 'Ván MDF DW MBR E2 2.5x1220x2440', sold: 450, trend: '+15%', category: 'Ván MDF' },
+    { name: 'ECO Chống ẩm E2 12x1220x2440 Melamine 3', sold: 320, trend: '+12%', category: 'Ván ECO' },
+    { name: 'ECO MDF E2 12x1220x2440 Phủ Men', sold: 280, trend: '+8%', category: 'Ván ECO' },
   ]
 
   const quickActions = [

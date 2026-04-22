@@ -95,36 +95,36 @@ export function ProductionPlan() {
       expectedDate: today,
       status: 'producing',
       items: [
-        { id: 1, soNumber: 'DH001', customer: 'Nội Thất Việt', store: 'Kho A', moNumber: 'MO-001', machine: 'Máy 01', productCode: 'Bàn Gỗ Sồi', film: 'Melamine', face: '2', quantity: 50, status: 'producing', materialsIssued: true, assignee: 'Quản đốc A' },
-        { id: 2, soNumber: 'DH002', customer: 'Luxury Hotel', store: 'Kho B', moNumber: 'MO-002', machine: 'Máy 02', productCode: 'Ghế Ergonomic', film: 'Veneer', face: '1', quantity: 120, status: 'producing', materialsIssued: true, assignee: 'Tổ trưởng B' },
+        { id: 1, soNumber: 'DH001', customer: 'Gỗ Á Châu', store: 'Kho A', moNumber: 'MO-001', machine: 'Máy 01', productCode: 'DWE2-2.5MBR', film: 'MDF DW MBR', face: '2', quantity: 500, status: 'producing', materialsIssued: true, assignee: 'Quản đốc A' },
+        { id: 2, soNumber: 'DH002', customer: 'Mộc Phát', store: 'Kho B', moNumber: 'MO-002', machine: 'Máy 02', productCode: 'ECOE2-12LBR-ML2', film: 'ECO MDF E2', face: '1', quantity: 250, status: 'producing', materialsIssued: true, assignee: 'Tổ trưởng B' },
       ],
       qcRecords: [
         { 
           id: 'QC-101', 
           moNumber: 'MO-001', 
-          productName: 'Bàn Gỗ Sồi',
+          productName: 'Ván MDF DW MBR E2 2.5x1220x2440',
           machine: 'Máy 01',
           inspector: 'Nguyễn QC', 
           status: 'completed', 
           date: today, 
-          quantity: 50,
-          qtyB: 0,
-          qtyR: 0,
+          quantity: 500,
+          qtyB: 2,
+          qtyR: 1,
           issues: [],
-          notes: 'Mặt bàn láng mịn, cạnh chỉ dán đều.' 
+          notes: 'Bề mặt láng mịn, đạt tiêu chuẩn E2.' 
         },
         { 
           id: 'QC-102', 
           moNumber: 'MO-002', 
-          productName: 'Ghế Ergonomic',
+          productName: 'ECO MDF E2 12x1220x2440 Melamine 2',
           machine: 'Máy 02',
           inspector: 'Trần QC', 
           status: 'in-progress', 
           date: today,
-          quantity: 120,
-          qtyB: 2,
-          qtyR: 1,
-          issues: ['Kiểm tra độ nhám bề mặt', 'Kiểm tra khớp nối']
+          quantity: 250,
+          qtyB: 5,
+          qtyR: 2,
+          issues: ['Kiểm tra độ bám dính Melamine']
         }
       ]
     },
@@ -134,8 +134,8 @@ export function ProductionPlan() {
       expectedDate: today,
       status: 'planned',
       items: [
-        { id: 3, soNumber: 'DH003', customer: 'Nguyễn Văn A', store: 'Kho A', moNumber: 'MO-003', machine: 'Máy 03', productCode: 'Tủ Áo Nordic', film: 'Acrylic', face: '1', quantity: 30, status: 'planned', materialsIssued: false, assignee: 'Tổ trưởng C' },
-        { id: 4, soNumber: 'DH004', customer: 'ABC Corp', store: 'Kho C', moNumber: 'MO-004', machine: 'Máy 01', productCode: 'Kệ Sách', film: 'Melamine', face: '2', quantity: 80, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật P' },
+        { id: 3, soNumber: 'DH003', customer: 'Nội Thất Việt', store: 'Kho A', moNumber: 'MO-003', machine: 'Máy 03', productCode: 'ECOE2-12LMR-ME3', film: 'ECO Chống ẩm', face: '1', quantity: 150, status: 'planned', materialsIssued: false, assignee: 'Tổ trưởng C' },
+        { id: 4, soNumber: 'DH004', customer: 'An Cường', store: 'Kho C', moNumber: 'MO-004', machine: 'Máy 01', productCode: 'ECOE2-12MDF-ME', film: 'ECO MDF E2', face: '2', quantity: 300, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật P' },
       ],
       qcRecords: []
     },
@@ -145,7 +145,7 @@ export function ProductionPlan() {
       expectedDate: today,
       status: 'draft',
       items: [
-        { id: 5, soNumber: 'DH005', customer: 'Trần Thị B', store: 'Kho B', moNumber: 'MO-005', machine: 'Máy 02', productCode: 'Giường Gỗ', film: 'Veneer', face: '2', quantity: 15, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật Q' },
+        { id: 5, soNumber: 'DH005', customer: 'Gỗ Đức Thành', store: 'Kho B', moNumber: 'MO-005', machine: 'Máy 02', productCode: 'ECOE2-15LMR-ME3', film: 'ECO Chống ẩm', face: '2', quantity: 100, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật Q' },
       ],
       qcRecords: []
     },
@@ -155,22 +155,22 @@ export function ProductionPlan() {
       expectedDate: yesterday,
       status: 'completed',
       items: [
-        { id: 6, soNumber: 'DH006', customer: 'Văn phòng XYZ', store: 'Kho A', moNumber: 'MO-006', machine: 'Máy 04', productCode: 'Bàn Họp', film: 'Melamine', face: '2', quantity: 5, status: 'completed', materialsIssued: true, assignee: 'Quản đốc A' },
+        { id: 6, soNumber: 'DH006', customer: 'Luxury Wood', store: 'Kho A', moNumber: 'MO-006', machine: 'Máy 04', productCode: 'ECOE2-12MDF-PG', film: 'ECO MDF E2', face: '2', quantity: 450, status: 'completed', materialsIssued: true, assignee: 'Quản đốc A' },
       ],
       qcRecords: [
         { 
           id: 'QC-098', 
           moNumber: 'MO-006', 
-          productName: 'Bàn Họp',
+          productName: 'ECO MDF E2 12x1220x2440 Phủ Giấy',
           machine: 'Máy 04',
           inspector: 'Nguyễn QC', 
           status: 'completed', 
           date: yesterday, 
-          quantity: 5,
+          quantity: 450,
           qtyB: 0,
           qtyR: 0,
           issues: [],
-          notes: 'Đạt yêu cầu xuất xưởng.' 
+          notes: 'Lớp phủ giấy đều màu, không bong tróc.' 
         }
       ]
     },
@@ -180,7 +180,7 @@ export function ProductionPlan() {
       expectedDate: tomorrow,
       status: 'draft',
       items: [
-        { id: 7, soNumber: 'DH007', customer: 'Khách lẻ H', store: 'Kho C', moNumber: 'MO-007', machine: 'Máy 01', productCode: 'Kệ TV', film: 'Laminate', face: '1', quantity: 10, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật P' },
+        { id: 7, soNumber: 'DH007', customer: 'Đại lý Hùng Anh', store: 'Kho C', moNumber: 'MO-007', machine: 'Máy 01', productCode: 'ECOE2-15MDF-ML', film: 'ECO MDF E2', face: '1', quantity: 200, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật P' },
       ],
       qcRecords: []
     }

@@ -30,61 +30,61 @@ export function SalesOrders() {
         id: 'DH001',
         customer: 'Công ty TNHH Nội Thất Việt',
         customerType: 'wholesale',
-        date: '2025-08-12',
+        date: '2026-04-22',
         total: 45600000,
         originalTotal: 50160000,
         totalDiscount: 4560000,
         status: 'pending',
         priority: 'Cao',
-        pickupLocation: 'Kho Thành Phố',
+        pickupLocation: 'Kho Ván 1',
         processingStatus: 'Đang xử lý',
-        expectedFinishDate: '2025-08-20',
-        salesAppointmentDate: '2025-08-15',
-        restockDate: '2025-08-18',
-        committedDeliveryDate: '2025-08-22',
+        expectedFinishDate: '2026-04-30',
+        salesAppointmentDate: '2026-04-25',
+        restockDate: '2026-04-28',
+        committedDeliveryDate: '2026-05-02',
         items: [
           { 
-            name: 'Bàn gỗ sồi cao cấp', 
-            quantity: 2, 
-            basePrice: 12500000,
-            unitPrice: 11250000, 
+            name: 'Ván MDF DW MBR E2 2.5x1220x2440', 
+            quantity: 100, 
+            basePrice: 185000,
+            unitPrice: 165000, 
             discount: 10,
-            total: 22500000 
+            total: 16500000 
           },
           { 
-            name: 'Ghế gỗ cao su', 
-            quantity: 6, 
-            basePrice: 4200000,
-            unitPrice: 3780000, 
-            discount: 10,
-            total: 22680000 
+            name: 'Keo dán cạnh PUR cao cấp', 
+            quantity: 50, 
+            basePrice: 250000,
+            unitPrice: 220000, 
+            discount: 12,
+            total: 11000000 
           }
         ]
       },
       {
         id: 'DH002',
-        customer: 'Khách sạn Luxury Hotel',
+        customer: 'Mộc Phát JSC',
         customerType: 'vip',
-        date: '2025-08-12',
+        date: '2026-04-22',
         total: 23750000,
         originalTotal: 25000000,
         totalDiscount: 1250000,
         status: 'pending',
         priority: 'Trung bình',
-        pickupLocation: 'Kho Bình Dương',
+        pickupLocation: 'Kho Ván 2',
         processingStatus: 'Mới',
-        expectedFinishDate: '2025-08-25',
-        salesAppointmentDate: '2025-08-16',
-        restockDate: '2025-08-20',
-        committedDeliveryDate: '2025-08-27',
+        expectedFinishDate: '2026-05-05',
+        salesAppointmentDate: '2026-04-26',
+        restockDate: '2026-04-30',
+        committedDeliveryDate: '2026-05-07',
         items: [
           { 
-            name: 'Tủ áo gỗ thông Nordic', 
-            quantity: 3, 
-            basePrice: 8900000,
-            unitPrice: 8455000, 
-            discount: 5,
-            total: 25365000 
+            name: 'ECO MDF E2 12x1220x2440 Melamine 2', 
+            quantity: 80, 
+            basePrice: 320000,
+            unitPrice: 300000, 
+            discount: 6,
+            total: 24000000 
           }
         ]
       }
@@ -92,31 +92,31 @@ export function SalesOrders() {
     'confirmed': [
       {
         id: 'DH003',
-        customer: 'Nguyễn Văn A',
+        customer: 'Gỗ Á Châu - Chi nhánh HN',
         customerType: 'standard',
-        date: '2025-08-11',
+        date: '2026-04-21',
         total: 12500000,
         originalTotal: 12500000,
         totalDiscount: 0,
         status: 'confirmed',
         priority: 'Thấp',
-        pickupLocation: 'Kho Đồng Nai',
+        pickupLocation: 'Kho Ván 3',
         processingStatus: 'Đang sản xuất',
-        expectedFinishDate: '2025-08-18',
-        salesAppointmentDate: '2025-08-12',
-        restockDate: '2025-08-14',
-        committedDeliveryDate: '2025-08-20',
+        expectedFinishDate: '2026-04-28',
+        salesAppointmentDate: '2026-04-22',
+        restockDate: '2026-04-24',
+        committedDeliveryDate: '2026-04-30',
         paymentAmount: 12500000,
-        dueDate: '2025-08-01',
-        isOverdue: true,
+        dueDate: '2026-05-01',
+        isOverdue: false,
         items: [
           { 
-            name: 'Bàn gỗ sồi cao cấp', 
-            quantity: 1, 
-            basePrice: 12500000,
-            unitPrice: 12500000, 
+            name: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3', 
+            quantity: 30, 
+            basePrice: 450000,
+            unitPrice: 450000, 
             discount: 0,
-            total: 12500000 
+            total: 13500000 
           }
         ]
       }
@@ -124,28 +124,28 @@ export function SalesOrders() {
     'completed': [
       {
         id: 'DH004',
-        customer: 'Văn phòng ABC Corp',
+        customer: 'Nội Thất Xinh',
         customerType: 'vip',
-        date: '2025-08-10',
+        date: '2026-04-20',
         total: 19950000,
         originalTotal: 21000000,
         totalDiscount: 1050000,
         status: 'completed',
         priority: 'Cao',
-        pickupLocation: 'Kho Thành Phố',
+        pickupLocation: 'Kho Ván 1',
         processingStatus: 'Đã giao hàng',
-        expectedFinishDate: '2025-08-15',
-        salesAppointmentDate: '2025-08-10',
-        restockDate: '2025-08-12',
-        committedDeliveryDate: '2025-08-16',
+        expectedFinishDate: '2026-04-25',
+        salesAppointmentDate: '2026-04-20',
+        restockDate: '2026-04-22',
+        committedDeliveryDate: '2026-04-26',
         items: [
           { 
-            name: 'Ghế gỗ cao su', 
-            quantity: 5, 
-            basePrice: 4200000,
-            unitPrice: 3990000, 
+            name: 'ECO MDF E2 15x1220x2440 Melamine', 
+            quantity: 50, 
+            basePrice: 380000,
+            unitPrice: 360000, 
             discount: 5,
-            total: 19950000 
+            total: 18000000 
           }
         ]
       }
