@@ -4,6 +4,7 @@ import { Badge } from './ui/badge'
 import { Search, Filter, Eye, Package, Star, QrCode } from 'lucide-react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
+import { ColoredName } from './ColoredName'
 
 export function Products() {
   const navigate = useNavigate();
@@ -126,7 +127,9 @@ export function Products() {
               <div className="flex-1 space-y-2">
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="font-bold text-gray-900 text-base">{product.name}</h3>
+                    <h3 className="font-bold text-gray-900 text-base">
+                      <ColoredName name={product.name} />
+                    </h3>
                     <p className="text-sm text-gray-600">{product.category} • {product.material}</p>
                   </div>
                   <Badge 

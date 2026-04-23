@@ -9,7 +9,6 @@ export function Login() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [role, setRole] = useState<'admin' | 'security'>('admin');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,11 +17,7 @@ export function Login() {
     // Simulate login
     setTimeout(() => {
       setIsLoading(false);
-      if (role === 'security') {
-        navigate('/security');
-      } else {
-        navigate('/');
-      }
+      navigate('/');
     }, 1000);
   };
 
@@ -34,21 +29,25 @@ export function Login() {
       className="w-full max-w-md"
     >
       {/* Logo & Title */}
-      <div className="text-center mb-8">
+      <div className="mb-10">
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="bg-white p-4 rounded-3xl shadow-xl mx-auto mb-6 w-fit border border-emerald-100"
+          className="flex items-center justify-center gap-4"
         >
-          <img 
-            src="https://goachau.vn/wp-content/uploads/2022/11/logo.png" 
-            alt="Gỗ Á Châu Logo" 
-            className="h-16 w-auto object-contain" 
-          />
+          <div className="bg-white p-4 rounded-3xl shadow-xl border border-emerald-100 shrink-0">
+            <img 
+              src="https://goachau.vn/wp-content/uploads/2022/11/logo.png" 
+              alt="Gỗ Á Châu Logo" 
+              className="h-20 w-auto object-contain" 
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-5xl font-black text-amber-950 italic tracking-tighter leading-none mb-2">ERP</h1>
+            <p className="text-emerald-700/70 font-bold text-[10px] uppercase tracking-[0.2em] max-w-[150px] leading-tight">Hệ thống quản lý doanh nghiệp</p>
+          </div>
         </motion.div>
-        <h1 className="text-3xl font-black text-amber-950 mb-2 italic tracking-tighter">ERP</h1>
-        <p className="text-emerald-700/70 font-medium">Hệ thống quản lý doanh nghiệp</p>
       </div>
 
       {/* Login Form */}
@@ -58,30 +57,6 @@ export function Login() {
         transition={{ delay: 0.3, duration: 0.5 }}
         className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-emerald-200/50 p-6"
       >
-        <div className="flex p-1 bg-emerald-50 rounded-xl mb-6 border border-emerald-100">
-          <button
-            type="button"
-            onClick={() => setRole('admin')}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-              role === 'admin' 
-                ? 'bg-white text-emerald-900 shadow-sm' 
-                : 'text-emerald-600/60 hover:text-emerald-600'
-            }`}
-          >
-            Quản lý / Văn phòng
-          </button>
-          <button
-            type="button"
-            onClick={() => setRole('security')}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-              role === 'security' 
-                ? 'bg-white text-emerald-900 shadow-sm' 
-                : 'text-emerald-600/60 hover:text-emerald-600'
-            }`}
-          >
-            Bảo vệ / Cổng
-          </button>
-        </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}

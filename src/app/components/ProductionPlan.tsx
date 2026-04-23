@@ -17,10 +17,12 @@ import {
   MoreVertical,
   ClipboardList,
   Search,
-  User as UserIcon
+  User as UserIcon,
+  XCircle
 } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
+import { ColoredName } from './ColoredName'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from './ui/dialog'
 import { Card } from './ui/card'
 import { cn } from './ui/utils'
@@ -95,8 +97,8 @@ export function ProductionPlan() {
       expectedDate: today,
       status: 'producing',
       items: [
-        { id: 1, soNumber: 'DH001', customer: 'Gỗ Á Châu', store: 'Kho A', moNumber: 'MO-001', machine: 'Máy 01', productCode: 'DWE2-2.5MBR', film: 'MDF DW MBR', face: '2', quantity: 500, status: 'producing', materialsIssued: true, assignee: 'Quản đốc A' },
-        { id: 2, soNumber: 'DH002', customer: 'Mộc Phát', store: 'Kho B', moNumber: 'MO-002', machine: 'Máy 02', productCode: 'ECOE2-12LBR-ML2', film: 'ECO MDF E2', face: '1', quantity: 250, status: 'producing', materialsIssued: true, assignee: 'Tổ trưởng B' },
+        { id: 1, soNumber: 'DH001', customer: 'Gỗ Á Châu', store: 'Kho A', moNumber: 'MO-001', machine: 'Máy 01', productCode: 'GAC LMR E2 17x1220x2440 Melamine 2340 1M', film: 'MDF DW MBR', face: '2', quantity: 500, status: 'producing', materialsIssued: true, assignee: 'Quản đốc A' },
+        { id: 2, soNumber: 'DH002', customer: 'Mộc Phát', store: 'Kho B', moNumber: 'MO-002', machine: 'Máy 02', productCode: 'ECO Chống-ẩm E2 12x1220x2440 PhủMen 3', film: 'ECO MDF E2', face: '1', quantity: 250, status: 'producing', materialsIssued: true, assignee: 'Tổ trưởng B' },
       ],
       qcRecords: [
         { 
@@ -116,7 +118,7 @@ export function ProductionPlan() {
         { 
           id: 'QC-102', 
           moNumber: 'MO-002', 
-          productName: 'ECO MDF E2 12x1220x2440 Melamine 2',
+          productName: 'ECOChốngẩmE212x1220x2440PhủMen3',
           machine: 'Máy 02',
           inspector: 'Trần QC', 
           status: 'in-progress', 
@@ -145,7 +147,7 @@ export function ProductionPlan() {
       expectedDate: today,
       status: 'draft',
       items: [
-        { id: 5, soNumber: 'DH005', customer: 'Gỗ Đức Thành', store: 'Kho B', moNumber: 'MO-005', machine: 'Máy 02', productCode: 'ECOE2-15LMR-ME3', film: 'ECO Chống ẩm', face: '2', quantity: 100, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật Q' },
+        { id: 5, soNumber: 'DH005', customer: 'Gỗ Đức Thành', store: 'Kho B', moNumber: 'MO-005', machine: 'Máy 02', productCode: 'ECOE2-15LMR-ME3', film: 'ECO Chống-ẩm', face: '2', quantity: 100, status: 'planned', materialsIssued: false, assignee: 'Kỹ thuật Q' },
       ],
       qcRecords: []
     },
@@ -301,19 +303,21 @@ export function ProductionPlan() {
   }
 
   const renderListView = () => (
-    <div className="space-y-4">
+    <div className="min-h-screen bg-gray-50/50">
       {/* Header & Stats */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30 mb-4">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-sm">
             <ClipboardList className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-gray-900">Danh sách kế hoạch</h1>
-            <p className="text-xs text-gray-500">{filteredGroups.length} kế hoạch được tìm thấy</p>
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Kế hoạch sản xuất</h1>
+            <p className="text-sm text-gray-500">{filteredGroups.length} kế hoạch đang hoạt động</p>
           </div>
         </div>
       </div>
+
+      <div className="px-4 pb-24 space-y-4">
 
       {/* Search Bar */}
       <div className="relative group">
@@ -423,9 +427,32 @@ export function ProductionPlan() {
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-50">
-                    <div className="text-xs text-gray-400">
-                      <span className="font-bold text-gray-600">{plan.items.length}</span> lệnh sản xuất
+                  {/* Product Preview - Like Sales Orders */}
+                  <div className="bg-gray-50 rounded-xl p-3 space-y-2">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Chi tiết lệnh ({plan.items.length})</p>
+                    <div className="space-y-2">
+                      {plan.items.slice(0, 3).map((item, idx) => (
+                        <div key={idx} className="flex justify-between items-center bg-white p-2 rounded-lg border border-gray-100 shadow-sm">
+                          <div className="flex-1 min-w-0 mr-2">
+                            <div className="text-[11px] font-bold text-gray-900 truncate">
+                              <ColoredName name={item.productCode} />
+                            </div>
+                            <div className="text-[9px] text-gray-500 truncate">{item.moNumber} • {item.machine}</div>
+                          </div>
+                          <Badge variant="outline" className="text-[10px] font-bold border-emerald-200 text-emerald-700 bg-emerald-50 shrink-0">
+                            {item.quantity}
+                          </Badge>
+                        </div>
+                      ))}
+                      {plan.items.length > 3 && (
+                        <p className="text-[10px] text-center text-gray-400 italic">... và {plan.items.length - 3} lệnh khác</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="text-[10px] text-gray-400">
+                      Chạm để xem chi tiết & điều hành
                     </div>
                     <ChevronRight className="h-4 w-4 text-gray-300" />
                   </div>
@@ -450,6 +477,7 @@ export function ProductionPlan() {
             </Card>
           )
         })}
+      </div>
       </div>
     </div>
   )
@@ -650,88 +678,73 @@ export function ProductionPlan() {
             </TabsList>
 
             <TabsContent value="mo" className="mt-0">
-              <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-                <div className="bg-gray-50 px-4 py-3 border-b border-gray-200 flex items-center justify-between">
-                  <h3 className="font-bold text-gray-900 text-sm">Chi tiết các lệnh (MO)</h3>
-                  <Badge variant="secondary" className="bg-gray-200">{selectedPlan.items.length} MO</Badge>
-                </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm text-left">
-                    <thead className="bg-gray-50/50 text-[10px] text-gray-500 uppercase tracking-wider font-bold">
-                      <tr>
-                        <th className="px-4 py-3 text-center">Thao tác</th>
-                        <th className="px-4 py-3">Mã MO</th>
-                        <th className="px-4 py-3">Người phụ trách</th>
-                        <th className="px-4 py-3">Sản phẩm</th>
-                        <th className="px-4 py-3 text-center">SL</th>
-                        <th className="px-4 py-3">Máy</th>
-                        <th className="px-4 py-3">Trạng thái</th>
-                        <th className="px-4 py-3">Khách hàng</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100">
-                      <TooltipProvider>
-                        {selectedPlan.items.map((item) => (
-                          <tr key={item.id} className="hover:bg-gray-50 transition-colors">
-                            <td className="px-4 py-4 text-center">
-                              <div className="flex items-center justify-center gap-1">
-                                {item.status === 'planned' ? (
-                                  <Tooltip>
-                                    <TooltipTrigger asChild>
-                                      <Button size="icon" variant="ghost" className="h-8 w-8 text-blue-600 hover:bg-blue-50" onClick={() => handleStartItemProduction(item.id)}>
-                                        <Play className="h-4 w-4" />
-                                      </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                      <p>Bắt đầu sản xuất lệnh này</p>
-                                    </TooltipContent>
-                                  </Tooltip>
-                                ) : (
-                                  <Tooltip>
-                                    <TooltipTrigger asChild>
-                                      <Button 
-                                        size="icon" 
-                                        variant="ghost" 
-                                        className="h-8 w-8 text-green-600 hover:bg-green-50"
-                                        onClick={() => navigate('/production/quality', { state: { newQcPlan: item } })}
-                                      >
-                                        <ShieldCheck className="h-4 w-4" />
-                                      </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                      <p>Kiểm tra chất lượng (QC KCS)</p>
-                                    </TooltipContent>
-                                  </Tooltip>
-                                )}
-                              </div>
-                            </td>
-                            <td className="px-4 py-4 font-bold text-emerald-700">{item.moNumber}</td>
-                            <td className="px-4 py-4">
-                              <div className="flex items-center gap-2 bg-blue-50/50 px-2 py-1 rounded-md border border-blue-100 w-fit">
-                                <UserIcon className="h-3 w-3 text-blue-500" />
-                                <span className="text-xs font-bold text-blue-700">{item.assignee}</span>
-                              </div>
-                            </td>
-                            <td className="px-4 py-4">
-                              <div className="text-gray-900 font-bold">{item.productCode}</div>
-                              <div className="text-[10px] text-gray-400">{item.film} • {item.face} mặt</div>
-                            </td>
-                            <td className="px-4 py-4 text-center font-bold">{item.quantity}</td>
-                            <td className="px-4 py-4">
-                              <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-0">{item.machine}</Badge>
-                            </td>
-                            <td className="px-4 py-4">
-                              {item.status === 'planned' ? <Badge className="bg-blue-100 text-blue-700 border-0">Chờ</Badge> : 
-                                item.status === 'producing' ? <Badge className="bg-emerald-100 text-emerald-700 border-0">SX</Badge> :
-                                <Badge className="bg-green-100 text-green-700 border-0">Xong</Badge>}
-                            </td>
-                            <td className="px-4 py-4 text-gray-700 font-medium">{item.customer}</td>
-                          </tr>
-                        ))}
-                      </TooltipProvider>
-                    </tbody>
-                  </table>
-                </div>
+              <div className="space-y-3">
+                {selectedPlan.items.map((item) => (
+                  <Card key={item.id} className="p-4 border-0 shadow-sm bg-white overflow-hidden relative group">
+                    <div className={cn(
+                      "absolute left-0 top-0 w-1.5 h-full",
+                      item.status === 'planned' ? "bg-blue-500" : 
+                      item.status === 'producing' ? "bg-emerald-500" : "bg-green-500"
+                    )} />
+                    
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded uppercase">{item.moNumber}</span>
+                          <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded uppercase">{item.machine}</span>
+                        </div>
+                        <h4 className="font-bold text-gray-900 text-sm mt-1">
+                          <ColoredName name={item.productCode} />
+                        </h4>
+                        <div className="text-[10px] text-gray-500 font-medium">
+                          {item.film} • {item.face} mặt • {item.customer}
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end gap-2">
+                        {item.status === 'planned' ? (
+                          <Badge className="bg-blue-100 text-blue-700 border-0 text-[10px]">Chờ SX</Badge>
+                        ) : item.status === 'producing' ? (
+                          <Badge className="bg-emerald-100 text-emerald-700 border-0 text-[10px]">Đang SX</Badge>
+                        ) : (
+                          <Badge className="bg-green-100 text-green-700 border-0 text-[10px]">Hoàn tất</Badge>
+                        )}
+                        <div className="text-sm font-black text-gray-900">
+                          SL: {item.quantity}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-50 mt-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
+                          <UserIcon className="h-3 w-3 text-gray-500" />
+                        </div>
+                        <span className="text-[11px] font-bold text-gray-600">{item.assignee}</span>
+                      </div>
+                      
+                      <div className="flex gap-2">
+                        {item.status === 'planned' ? (
+                          <Button 
+                            size="sm" 
+                            className="h-8 bg-blue-600 hover:bg-blue-700 text-white text-[11px] px-4 rounded-lg"
+                            onClick={() => handleStartItemProduction(item.id)}
+                          >
+                            <Play className="h-3 w-3 mr-1.5" /> Bắt đầu
+                          </Button>
+                        ) : (
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            className="h-8 border-emerald-500 text-emerald-700 hover:bg-emerald-50 text-[11px] px-4 rounded-lg"
+                            onClick={() => navigate('/quality', { state: { newQcPlan: item } })}
+                          >
+                            <ShieldCheck className="h-3 w-3 mr-1.5" /> QC KCS
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                ))}
               </div>
             </TabsContent>
 
@@ -758,7 +771,9 @@ export function ProductionPlan() {
                        <div className="space-y-3">
                          <div className="flex justify-between items-start">
                            <div>
-                             <h4 className="font-bold text-sm text-gray-900">{record.productName}</h4>
+                             <h4 className="font-bold text-sm text-gray-900">
+                               <ColoredName name={record.productName} />
+                             </h4>
                              <p className="text-[10px] text-gray-500 font-medium flex items-center gap-1 mt-0.5">
                                <Badge variant="outline" className="px-1 py-0 text-emerald-700 border-emerald-200 bg-emerald-50 h-4">
                                  {record.moNumber}

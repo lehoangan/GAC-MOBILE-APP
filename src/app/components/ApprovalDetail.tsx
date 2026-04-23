@@ -64,29 +64,29 @@ export function ApprovalDetail() {
   return (
     <div className="min-h-screen bg-gray-50/50 pb-32">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 px-4 pt-4 pb-6 border-b border-amber-100 sticky top-0 z-10">
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30">
         <button
           onClick={() => navigate('/approval')}
-          className="flex items-center gap-2 text-amber-900 mb-4 hover:text-amber-700 transition-colors"
+          className="flex items-center gap-2 text-emerald-700 mb-4 hover:text-emerald-800 transition-colors"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span className="font-medium">Quay lại</span>
+          <span className="font-medium text-sm">Quay lại</span>
         </button>
         
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-amber-900 mb-1">
+            <h1 className="text-xl font-bold text-gray-900 mb-1">
               {request.code}
             </h1>
-            <p className="text-sm text-amber-700/70">{request.type}</p>
+            <p className="text-xs text-gray-500">{request.type}</p>
           </div>
           <ApprovalBadge status={request.status} />
         </div>
         
         {request.amount > 0 && (
-          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
+          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-3 border border-emerald-200/50">
             <p className="text-xs text-gray-600 mb-0.5">Số tiền</p>
-            <p className="text-xl font-bold text-amber-700">
+            <p className="text-xl font-bold text-emerald-700">
               {request.amount.toLocaleString('vi-VN')} ₫
             </p>
           </div>
@@ -97,7 +97,7 @@ export function ApprovalDetail() {
         {/* Thông tin chứng từ */}
         <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
           <div className="flex items-center gap-2 mb-3">
-            <FileText className="h-5 w-5 text-amber-600" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="font-semibold text-gray-900">Thông tin chứng từ</h2>
           </div>
           <div className="space-y-2">
@@ -120,7 +120,7 @@ export function ApprovalDetail() {
         {request.type === 'Đơn hàng giá đặc biệt' && (
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
             <div className="flex items-center gap-2 mb-3">
-              <FileText className="h-5 w-5 text-amber-600" />
+              <FileText className="h-5 w-5 text-emerald-600" />
               <h2 className="font-semibold text-gray-900">Thông tin đơn hàng</h2>
             </div>
             <div className="space-y-2">
@@ -144,7 +144,7 @@ export function ApprovalDetail() {
                 {request.proposedPrice && (
                   <div>
                     <p className="text-xs text-gray-500">Giá đề xuất</p>
-                    <p className="text-sm font-bold text-amber-700">{request.proposedPrice.toLocaleString('vi-VN')} ₫</p>
+                    <p className="text-sm font-bold text-emerald-700">{request.proposedPrice.toLocaleString('vi-VN')} ₫</p>
                   </div>
                 )}
               </div>

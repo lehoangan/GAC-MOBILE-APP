@@ -52,7 +52,7 @@ export function ApprovalTimeline({ steps, currentUserLevel }: ApprovalTimelinePr
             </div>
 
             {/* Content */}
-            <div className={`flex-1 pb-6 ${isCurrentUser ? 'bg-amber-50 -ml-2 pl-2 pr-2 py-2 rounded-xl border-l-4 border-amber-500' : ''}`}>
+            <div className={`flex-1 pb-6 ${isCurrentUser ? 'bg-emerald-50 -ml-2 pl-2 pr-2 py-2 rounded-xl border-l-4 border-emerald-500' : ''}`}>
               <div className="flex items-start justify-between">
                 <div>
                   <div className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export function ApprovalTimeline({ steps, currentUserLevel }: ApprovalTimelinePr
                       Cấp {step.level} - {step.role}
                     </span>
                     {isCurrentUser && (
-                      <span className="text-xs bg-amber-600 text-white px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-full">
                         Đang chờ bạn
                       </span>
                     )}

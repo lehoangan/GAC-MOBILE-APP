@@ -11,6 +11,7 @@ import { Input } from './ui/input'
 import { PriceList } from './PriceList'
 import { FileText, Eye, Plus, Calendar, User, DollarSign, Package, Percent, Star, Crown, Users, Send, AlertCircle, Clock, Search, MapPin, ShieldAlert, Tag, Briefcase, BadgeInfo, Filter, SlidersHorizontal, X } from 'lucide-react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import { ColoredName } from './ColoredName'
 
 export function SalesOrders() {
   const navigate = useNavigate();
@@ -261,7 +262,9 @@ export function SalesOrders() {
           {order.items.map((item: any, idx: number) => (
             <div key={idx} className="flex justify-between items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm">
               <div>
-                <p className="text-sm font-bold text-gray-900">{item.name}</p>
+                <p className="text-sm font-bold text-gray-900">
+                  <ColoredName name={item.name} />
+                </p>
                 <p className="text-xs text-gray-500">SL: {item.quantity} x {item.unitPrice.toLocaleString('vi-VN')}₫</p>
               </div>
               <p className="text-sm font-bold text-emerald-700">{item.total.toLocaleString('vi-VN')}₫</p>
@@ -366,7 +369,9 @@ export function SalesOrders() {
               {order.items.map((item: any, index: number) => (
                 <div key={index} className="grid grid-cols-12 gap-2 text-xs items-center py-2 bg-white rounded border border-gray-100">
                   <div className="col-span-4">
-                    <span className="text-gray-900 font-medium">{item.name}</span>
+                    <span className="text-gray-900 font-medium">
+                      <ColoredName name={item.name} />
+                    </span>
                   </div>
                   <div className="col-span-2 text-center">
                     <span className="text-gray-700">{item.quantity}</span>

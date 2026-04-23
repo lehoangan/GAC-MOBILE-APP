@@ -33,7 +33,7 @@ export function ApprovalCard({ request, onClick }: ApprovalCardProps) {
           <h3 className="font-semibold text-gray-900 mb-1">
             {request.code} - {request.type}
           </h3>
-          <p className="text-lg font-bold text-amber-700">
+          <p className="text-lg font-bold text-emerald-700">
             {request.amount.toLocaleString('vi-VN')} ₫
           </p>
         </div>

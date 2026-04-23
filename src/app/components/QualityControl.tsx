@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 import { Card } from './ui/card'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
+import { ColoredName } from './ColoredName'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 import { Input } from './ui/input'
 import { CheckCircle, XCircle, Clock, AlertCircle, PackagePlus, ShieldCheck, Search } from 'lucide-react'
@@ -15,7 +16,7 @@ export function QualityControl() {
     'in-progress': [
       {
         id: 3,
-        productName: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3',
+        productName: 'ECO Chống-ẩm E2 12x1220x2440 PhủMen 3',
         batch: 'MO-003',
         quantity: 150,
         qtyB: 2,
@@ -127,7 +128,9 @@ export function QualityControl() {
         <div className="space-y-3">
           <div className="flex justify-between items-start">
             <div>
-              <h4 className="font-bold text-sm text-gray-900">{item.productName}</h4>
+              <h4 className="font-bold text-sm text-gray-900">
+                <ColoredName name={item.productName} />
+              </h4>
               <p className="text-[10px] text-gray-500 font-medium mt-0.5">Lô: <span className="text-emerald-700">{item.batch}</span></p>
             </div>
             {status === 'completed' ? (
@@ -266,16 +269,20 @@ export function QualityControl() {
   const filteredCompleted = filterItems(qualityData.completed)
 
   return (
-    <div className="p-4 pb-20 bg-gray-50/50 min-h-screen">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-sm">
-          <ShieldCheck className="h-5 w-5 text-white" />
-        </div>
-        <div>
-          <h1 className="text-xl font-bold text-gray-900">Kiểm tra chất lượng</h1>
-          <p className="text-xs text-gray-500">Quản lý và phân loại thành phẩm</p>
+    <div className="min-h-screen bg-gray-50/50">
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30 mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-sm">
+            <ShieldCheck className="h-5 w-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Kiểm tra chất lượng</h1>
+            <p className="text-sm text-gray-500">Quản lý và phân loại thành phẩm</p>
+          </div>
         </div>
       </div>
+
+      <div className="px-4 pb-20">
 
       {/* Search Bar */}
       <div className="relative group mb-6">
@@ -329,6 +336,7 @@ export function QualityControl() {
           </div>
         </TabsContent>
       </Tabs>
+      </div>
     </div>
   )
 }

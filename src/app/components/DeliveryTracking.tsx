@@ -4,6 +4,7 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Search, CheckCircle, Truck, Camera, Image as ImageIcon, MapPin, Package, FileText, Calendar as CalendarIcon, Filter, Phone } from 'lucide-react'
+import { ColoredName } from './ColoredName'
 
 export function DeliveryTracking() {
   const [viewMode, setViewMode] = useState<'order' | 'batch' | 'return'>('order')
@@ -27,8 +28,8 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'Ván MDF DW MBR E2 2.5x1220x2440', batch: 'LOT-MDF-01', location: 'Rack-A1', quantity: 200 },
-        { product: 'ECO MDF E2 12x1220x2440 Melamine 2', batch: 'LOT-ECO-02', location: 'Rack-B2', quantity: 150 }
+        { product: 'GAC LMR E2 17x1220x2440 Melamine 2340 1M', batch: 'LOT-MDF-01', location: 'Rack-A1', quantity: 200 },
+        { product: 'ECO Chống-ẩm E2 12x1220x2440 Phủ Men 3', batch: 'LOT-ECO-02', location: 'Rack-B2', quantity: 150 }
       ]
     },
     {
@@ -44,7 +45,7 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'ECO Chống ẩm E2 15x1220x2440 Phủ Men 3', batch: 'LOT-HMR-05', location: 'Rack-C5', quantity: 100 }
+        { product: 'ECO Chống-ẩm E2 15x1220x2440 Phủ Men 3', batch: 'LOT-HMR-05', location: 'Rack-C5', quantity: 100 }
       ]
     }
   ])
@@ -60,8 +61,8 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { doNumber: 'DO-003', customerName: 'Nội Thất Việt', customerPhone: '0933333333', soNumber: 'SO-1003', product: 'Ván MDF DW MBR E2 4.75x1220x2440', batch: 'LOT-MDF-03', location: 'Rack-A3', quantity: 300 },
-        { doNumber: 'DO-004', customerName: 'An Cường', customerPhone: '0944444444', soNumber: 'SO-1004', product: 'ECO MDF E2 12x1220x2440 Phủ Giấy', batch: 'LOT-ECO-04', location: 'Rack-B4', quantity: 250 }
+        { doNumber: 'DO-003', customerName: 'Nội Thất Việt', customerPhone: '0933333333', soNumber: 'SO-1003', product: 'GAC LMR E2 17x1220x2440 Melamine 2340 1M', batch: 'LOT-MDF-03', location: 'Rack-A3', quantity: 300 },
+        { doNumber: 'DO-004', customerName: 'An Cường', customerPhone: '0944444444', soNumber: 'SO-1004', product: 'ECO Chống-ẩm E2 12x1220x2440 Phủ Men 3', batch: 'LOT-ECO-04', location: 'Rack-B4', quantity: 250 }
       ]
     }
   ])
@@ -79,7 +80,7 @@ export function DeliveryTracking() {
       expectedDate: todayStr,
       completedDate: '',
       details: [
-        { product: 'ECO MDF E2 15x1220x2440 Melamine', batch: 'LOT-FAIL-01', location: 'Rack-99', quantity: 5 }
+        { product: 'ECO Chống-ẩm E2 15x1220x2440 Phủ Men 3', batch: 'LOT-FAIL-01', location: 'Rack-99', quantity: 5 }
       ]
     }
   ])
@@ -225,28 +226,37 @@ export function DeliveryTracking() {
   }
 
   return (
-    <div className="p-4 pb-24 bg-gray-50 min-h-screen">
-      <div className="mb-4">
-        <h1 className="text-xl font-bold text-gray-900 mb-1">Giao hàng (Dành cho NV/Tài xế)</h1>
-        <p className="text-sm text-gray-500">Quản lý lộ trình và xác thực giao nhận</p>
+    <div className="min-h-screen bg-gray-50/50">
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30 mb-4">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-sm">
+            <Truck className="h-5 w-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Giao hàng</h1>
+            <p className="text-sm text-gray-500">Quản lý lộ trình và xác thực giao nhận</p>
+          </div>
+        </div>
       </div>
+
+      <div className="px-4 pb-24">
 
       <div className="flex bg-white rounded-lg p-1 border border-gray-200 mb-4 shadow-sm">
         <button 
           onClick={() => setViewMode('order')}
-          className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'order' ? 'bg-amber-100 text-amber-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
+          className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'order' ? 'bg-emerald-100 text-emerald-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
         >
           Giao theo Đơn
         </button>
         <button 
            onClick={() => setViewMode('batch')}
-           className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'batch' ? 'bg-amber-100 text-amber-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
+           className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'batch' ? 'bg-emerald-100 text-emerald-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
         >
           Giao theo Batch
         </button>
         <button 
            onClick={() => setViewMode('return')}
-           className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'return' ? 'bg-amber-100 text-amber-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
+           className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${viewMode === 'return' ? 'bg-emerald-100 text-emerald-800 shadow-sm' : 'text-gray-500 hover:bg-gray-50'}`}
         >
           Trả hàng
         </button>
@@ -262,7 +272,7 @@ export function DeliveryTracking() {
             onChange={e => setSearchQuery(e.target.value)}
           />
         </div>
-        <div className="flex-1 min-w-[140px] flex items-center gap-2 bg-gray-50 px-3 h-10 rounded-md border border-gray-200 focus-within:border-amber-400">
+        <div className="flex-1 min-w-[140px] flex items-center gap-2 bg-gray-50 px-3 h-10 rounded-md border border-gray-200 focus-within:border-emerald-400">
           <Filter className="h-4 w-4 text-gray-400" />
           <select 
             value={dateFilter} 
@@ -289,7 +299,7 @@ export function DeliveryTracking() {
                 <div>
                   <h3 className="font-bold text-gray-900 text-base">{item.id}</h3>
                   {(viewMode === 'order' || viewMode === 'return') && (
-                    <div className="flex items-center text-sm text-amber-600 font-medium">
+                    <div className="flex items-center text-sm text-emerald-600 font-medium">
                       <span>{item.customerName} • {item.soNumber}</span>
                       <button 
                         onClick={() => handleMakeOmiCall(item.customerPhone)}
@@ -321,7 +331,7 @@ export function DeliveryTracking() {
                     <Truck className="h-3.5 w-3.5 mr-1.5 text-gray-400 flex-shrink-0" /> 
                     <span className="whitespace-nowrap">Biển số:</span>
                     <input 
-                      className="ml-1.5 px-1 py-0.5 w-24 bg-transparent border-b border-dashed border-gray-300 focus:border-amber-500 focus:bg-amber-50 focus:outline-none text-gray-800 font-medium transition-colors"
+                      className="ml-1.5 px-1 py-0.5 w-24 bg-transparent border-b border-dashed border-gray-300 focus:border-emerald-500 focus:bg-emerald-50 focus:outline-none text-gray-800 font-medium transition-colors"
                       value={item.vehicleNumber}
                       onChange={(e) => updateVehicleNumber(item.id, viewMode === 'order', e.target.value)}
                       placeholder="Nhập BSX..."
@@ -345,14 +355,14 @@ export function DeliveryTracking() {
 
               <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 space-y-2 mb-4">
                 <p className="text-xs font-semibold text-gray-700 mb-1 flex items-center">
-                  <Package className="h-3.5 w-3.5 mr-1 text-amber-500" /> 
+                  <Package className="h-3.5 w-3.5 mr-1 text-emerald-500" /> 
                   Chi tiết hàng hoá ({item.details.length})
                 </p>
                 {item.details.map((detail: any, idx: number) => (
                   <div key={idx} className="bg-white p-2 border border-gray-200 rounded text-[11px] leading-relaxed">
                     {viewMode === 'batch' && (
                       <div className="flex items-center justify-between border-b border-gray-100 pb-1 mb-1">
-                        <p className="font-medium text-amber-700">
+                        <p className="font-medium text-emerald-700">
                           {detail.doNumber} • {detail.customerName} ({detail.soNumber})
                         </p>
                         <button 
@@ -366,10 +376,12 @@ export function DeliveryTracking() {
                     )}
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-medium text-gray-800">{detail.product}</p>
+                        <p className="font-medium text-gray-800">
+                          <ColoredName name={detail.product} />
+                        </p>
                         <p className="text-gray-500">Lô: {detail.batch} | Tại: {detail.location}</p>
                       </div>
-                      <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50 ml-2">
+                      <Badge variant="outline" className="text-emerald-600 border-emerald-200 bg-emerald-50 ml-2">
                         SL: {detail.quantity}
                       </Badge>
                     </div>
@@ -395,7 +407,7 @@ export function DeliveryTracking() {
                 {viewMode !== 'return' && item.status === 'assign' && (
                   <Button 
                     onClick={() => handleStart(item.id, viewMode === 'order')}
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-white shadow-sm"
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm"
                   >
                     <Truck className="h-4 w-4 mr-2" />
                     Bắt đầu giao hàng
@@ -441,6 +453,7 @@ export function DeliveryTracking() {
             </div>
           </Card>
         ))}
+      </div>
       </div>
     </div>
   )

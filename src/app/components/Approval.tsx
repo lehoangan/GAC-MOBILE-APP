@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs'
 import { ApprovalCard, ApprovalRequest } from './ApprovalCard'
+import { ClipboardCheck } from 'lucide-react'
 
 export function Approval() {
   const navigate = useNavigate();
@@ -73,9 +74,16 @@ export function Approval() {
   return (
     <div className="min-h-screen bg-gray-50/50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 px-4 pt-6 pb-4 border-b border-amber-100">
-        <h1 className="text-2xl font-bold text-amber-900 mb-1">Phê duyệt</h1>
-        <p className="text-sm text-amber-700/70">Quản lý yêu cầu phê duyệt</p>
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-sm">
+            <ClipboardCheck className="h-5 w-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Phê duyệt</h1>
+            <p className="text-sm text-gray-500">Quản lý yêu cầu phê duyệt</p>
+          </div>
+        </div>
       </div>
 
       {/* Tabs */}
@@ -84,7 +92,7 @@ export function Approval() {
           <TabsList className="w-full bg-white border border-gray-200 p-1 h-auto">
             <TabsTrigger 
               value="mine" 
-              className="flex-1 data-[state=active]:bg-amber-600 data-[state=active]:text-white rounded-lg py-2.5"
+              className="flex-1 data-[state=active]:bg-emerald-600 data-[state=active]:text-white rounded-lg py-2.5"
             >
               Chờ tôi duyệt
               {myApprovalRequests.length > 0 && (
@@ -95,13 +103,13 @@ export function Approval() {
             </TabsTrigger>
             <TabsTrigger 
               value="my-requests" 
-              className="flex-1 data-[state=active]:bg-amber-600 data-[state=active]:text-white rounded-lg py-2.5"
+              className="flex-1 data-[state=active]:bg-emerald-600 data-[state=active]:text-white rounded-lg py-2.5"
             >
               Yêu cầu của tôi
             </TabsTrigger>
             <TabsTrigger 
               value="all" 
-              className="flex-1 data-[state=active]:bg-amber-600 data-[state=active]:text-white rounded-lg py-2.5"
+              className="flex-1 data-[state=active]:bg-emerald-600 data-[state=active]:text-white rounded-lg py-2.5"
             >
               Tất cả
             </TabsTrigger>

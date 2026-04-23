@@ -28,19 +28,19 @@ export function CreateApprovalRequest() {
   return (
     <div className="min-h-screen bg-gray-50/50 pb-24">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 px-4 pt-4 pb-6 border-b border-amber-100 sticky top-0 z-10">
+      <div className="p-4 bg-white border-b border-emerald-100 shadow-sm sticky top-0 z-30">
         <button 
           onClick={() => navigate('/approval')}
-          className="flex items-center gap-2 text-amber-900 mb-4 hover:text-amber-700 transition-colors"
+          className="flex items-center gap-2 text-emerald-700 mb-4 hover:text-emerald-800 transition-colors"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span className="font-medium">Quay lại</span>
+          <span className="font-medium text-sm">Quay lại</span>
         </button>
         
-        <h1 className="text-2xl font-bold text-amber-900 mb-1">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           Tạo yêu cầu phê duyệt
         </h1>
-        <p className="text-sm text-amber-700/70">
+        <p className="text-xs text-gray-500">
           Gửi yêu cầu phê duyệt cho cấp trên
         </p>
       </div>
@@ -101,11 +101,11 @@ export function CreateApprovalRequest() {
         </div>
 
         {/* Thông tin bổ sung */}
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-          <h3 className="font-semibold text-amber-900 text-sm mb-2">
+        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+          <h3 className="font-semibold text-emerald-900 text-sm mb-2">
             Lưu ý
           </h3>
-          <ul className="text-xs text-amber-800 space-y-1 list-disc list-inside">
+          <ul className="text-xs text-emerald-800 space-y-1 list-disc list-inside">
             <li>Yêu cầu sẽ được gửi đến cấp duyệt đầu tiên</li>
             <li>Bạn sẽ nhận thông báo khi có cập nhật</li>
             <li>Có thể theo dõi tiến trình tại tab "Yêu cầu của tôi"</li>
@@ -116,7 +116,7 @@ export function CreateApprovalRequest() {
         <div className="pt-2">
           <Button
             type="submit"
-            className="w-full h-12 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white text-base font-medium"
+            className="w-full h-12 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white text-base font-medium"
           >
             <Send className="h-5 w-5 mr-2" />
             Gửi yêu cầu phê duyệt
