@@ -23,10 +23,10 @@ export function ProductDetail() {
   return (
     <div className="min-h-screen bg-gray-50/50 pb-32">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 px-4 pt-4 pb-6 border-b border-amber-100 sticky top-0 z-10 shadow-sm">
+      <div className="bg-white px-4 pt-4 pb-6 border-b border-emerald-100 sticky top-0 z-30 shadow-sm">
         <button
           onClick={() => navigate('/products')}
-          className="flex items-center gap-2 text-amber-900 mb-4 hover:text-amber-700 transition-colors"
+          className="flex items-center gap-2 text-emerald-700 mb-4 hover:text-emerald-900 transition-colors"
         >
           <ArrowLeft className="h-5 w-5" />
           <span className="font-medium">Quay lại</span>
@@ -47,9 +47,9 @@ export function ProductDetail() {
               {product.status}
             </Badge>
           </div>
-          <div className="bg-white p-2 rounded-xl border border-amber-200/50 shadow-sm text-center min-w-[80px]">
-            <p className="text-xs text-amber-700/70 font-medium tracking-wide">Kho</p>
-            <p className="text-xl font-bold text-amber-600">{product.stock}</p>
+          <div className="bg-emerald-50 p-2 rounded-xl border border-emerald-200/50 shadow-sm text-center min-w-[80px]">
+            <p className="text-xs text-emerald-700/70 font-medium tracking-wide">Kho</p>
+            <p className="text-xl font-bold text-emerald-600">{product.stock}</p>
           </div>
         </div>
       </div>
@@ -57,11 +57,11 @@ export function ProductDetail() {
       <div className="px-4 pt-4 space-y-4">
         {/* Main Info */}
         <Card className="p-4 space-y-4 border-0 shadow-sm bg-white overflow-hidden">
-          <div className="w-full h-40 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center overflow-hidden border border-amber-100">
+          <div className="w-full h-40 bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl flex items-center justify-center overflow-hidden border border-emerald-100">
             {product.image ? (
                <img src={product.image} className="object-cover w-full h-full opacity-90" alt="Product" />
             ) : (
-               <Package className="h-16 w-16 text-amber-600/50" />
+               <Package className="h-16 w-16 text-emerald-600/50" />
             )}
           </div>
           
@@ -73,7 +73,7 @@ export function ProductDetail() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-1 gap-3 text-sm">
               <div className="flex flex-col bg-gray-50 rounded-lg p-2.5 border border-gray-100">
                 <span className="flex items-center text-gray-500 text-xs mb-1">
                   <Tag className="h-3.5 w-3.5 mr-1" /> Danh mục
@@ -82,21 +82,24 @@ export function ProductDetail() {
               </div>
               <div className="flex flex-col bg-gray-50 rounded-lg p-2.5 border border-gray-100">
                 <span className="flex items-center text-gray-500 text-xs mb-1">
-                  <Layers className="h-3.5 w-3.5 mr-1" /> Chất liệu
-                </span>
-                <span className="font-semibold text-gray-800">{product.material}</span>
-              </div>
-              <div className="flex flex-col bg-gray-50 rounded-lg p-2.5 border border-gray-100">
-                <span className="flex items-center text-gray-500 text-xs mb-1">
-                  <Star className="h-3.5 w-3.5 mr-1 text-amber-400" /> Đánh giá
-                </span>
-                <span className="font-semibold text-gray-800">{product.rating} / 5</span>
-              </div>
-              <div className="flex flex-col bg-gray-50 rounded-lg p-2.5 border border-gray-100">
-                <span className="flex items-center text-gray-500 text-xs mb-1">
                   <Info className="h-3.5 w-3.5 mr-1" /> Mã sản phẩm
                 </span>
                 <span className="font-semibold text-gray-800">SP00{product.id}</span>
+              </div>
+            </div>
+
+            {/* Product Attributes */}
+            <div className="space-y-3 pt-2">
+              <p className="text-xs font-bold text-emerald-700/60 uppercase tracking-wider flex items-center">
+                <Layers className="h-3.5 w-3.5 mr-1.5" /> Thuộc tính sản phẩm
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {product.attributes?.map((attr: any, idx: number) => (
+                  <div key={idx} className="bg-emerald-50/30 p-3 rounded-xl border border-emerald-100/50">
+                    <p className="text-[10px] text-emerald-600 font-bold uppercase mb-1">{attr.name}</p>
+                    <p className="text-sm font-black text-gray-900">{attr.value}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -13,36 +13,48 @@ export function Products() {
       id: 1,
       name: 'Ván MDF DW MBR E2 2.5x1220x2440',
       category: 'Ván MDF',
-      material: 'Gỗ sợi ép DW MBR',
       price: 185000,
       stock: 1500,
       status: 'Có sẵn',
-      rating: 4.8,
       image: 'https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?w=300&h=200&fit=crop',
+      attributes: [
+        { name: 'Cốt ván', value: 'MDF' },
+        { name: 'Độ dày', value: '2.5mm' },
+        { name: 'Kích thước', value: '1220x2440mm' },
+        { name: 'Tiêu chuẩn', value: 'E2' }
+      ],
       bom: ['Cốt ván MDF tiêu chuẩn E2', 'Keo kết dính chuyên dụng', 'Chất chống ẩm (nếu có)']
     },
     {
       id: 2,
       name: 'ECO MDF E2 12x1220x2440 Melamine 2',
       category: 'Ván ECO',
-      material: 'MDF E2 + Melamine',
       price: 320000,
       stock: 850,
       status: 'Có sẵn',
-      rating: 4.9,
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop',
+      attributes: [
+        { name: 'Loại ván', value: 'ECO MDF' },
+        { name: 'Độ dày', value: '12mm' },
+        { name: 'Phủ bề mặt', value: 'Melamine 2 mặt' },
+        { name: 'Màu sắc', value: 'Vân gỗ Sồi' }
+      ],
       bom: ['Cốt ván ECO MDF E2', 'Tấm phủ Melamine 2 mặt', 'Keo dán nóng chảy PUR']
     },
     {
       id: 3,
       name: 'ECO Chống ẩm E2 12x1220x2440 Phủ Men 3',
       category: 'Ván ECO',
-      material: 'ECO Chống ẩm HMR',
       price: 450000,
       stock: 420,
       status: 'Có sẵn',
-      rating: 4.7,
       image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop',
+      attributes: [
+        { name: 'Loại ván', value: 'ECO Chống ẩm (HMR)' },
+        { name: 'Độ dày', value: '12mm' },
+        { name: 'Phủ bề mặt', value: 'Men 3' },
+        { name: 'Tính năng', value: 'Chống ẩm cao' }
+      ],
       bom: ['Cốt ván HMR chống ẩm', 'Lớp phủ Men 3 cao cấp', 'Chất làm cứng bề mặt']
     },
     {
@@ -130,7 +142,7 @@ export function Products() {
                     <h3 className="font-bold text-gray-900 text-base">
                       <ColoredName name={product.name} />
                     </h3>
-                    <p className="text-sm text-gray-600">{product.category} • {product.material}</p>
+                    <p className="text-sm text-gray-600">{product.category}</p>
                   </div>
                   <Badge 
                     variant={product.status === 'Có sẵn' ? 'default' : 'destructive'}
@@ -144,14 +156,7 @@ export function Products() {
                   </Badge>
                 </div>
                 
-                <div className="flex items-center space-x-2">
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 text-emerald-400 fill-current" />
-                    <span className="text-sm font-medium text-gray-700">{product.rating}</span>
-                  </div>
-                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
                   <span className="text-sm text-gray-600">Tồn kho: {product.stock}</span>
-                </div>
                 
                 <div className="flex items-center justify-between">
                   <div>
